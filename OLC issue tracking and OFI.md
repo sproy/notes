@@ -20,7 +20,7 @@ version: 1.0
 - The issue happens only once at SU line.
 - OLC reuse the first slots at SFC `90`, the situation at MU line is at SFC `66` instead.
 
-![image-20200526141240587](Medias\image-20200526141240587.png)
+![image-20200526141240587](medias/image-20200526141240587.png)
 
 #### OLC integration issue, SFC production data is not reporting to ME.
 
@@ -34,7 +34,7 @@ SCSUENG001-00076, station 4, status: 43(published but not transferred).
 SCSUENG001-00132, station 4, status: 43(published but not transferred).
 ```
 
-<img src="Medias\image-20200526105637347.png" alt="image-20200526105637347" />  
+<img src="medias/image-20200526105637347.png" alt="image-20200526105637347" />  
 
 #### Data could not be reported back to SAP ME for the last unit.
 
@@ -63,7 +63,7 @@ SCSUENG001-00132, station 4, status: 43(published but not transferred).
 
 ##### The state calculation model:
 
-![image-20200526142807719](Medias\image-20200526142807719.png)
+![image-20200526142807719](medias/image-20200526142807719.png)
 
 - Root cause update
 
@@ -71,7 +71,7 @@ SCSUENG001-00132, station 4, status: 43(published but not transferred).
 
   - The agent is triggered at the condition of `DataReceived` == 1, which means this should be set by OLC.
 
-    ![image-20200526145658514](Medias\image-20200526145658514.png)
+    ![image-20200526145658514](medias/image-20200526145658514.png)
 
   - There's a global setting at OLC HMI OPC tab which determines whether OLC or the MCMAS is going to take control of the `DataReceived` tag.
 
@@ -83,7 +83,7 @@ SCSUENG001-00132, station 4, status: 43(published but not transferred).
 
   - The `DataReceived` tag should be treated separately for the following interface.
 
-    ![image-20200526150203942](Medias\image-20200526150203942.png)
+    ![image-20200526150203942](medias/image-20200526150203942.png)
 
   - OLC should make sure it completed the task before sending out the response.
 
@@ -95,7 +95,7 @@ SCSUENG001-00132, station 4, status: 43(published but not transferred).
 
 #### 1032 line control communication fault issue.
 
-![image-20200526111048169](C:\OneDrive\OneDrive - Medtronic PLC\Markdown\Medias\image-20200526111048169.png)
+![image-20200526111048169](C:\OneDrive\OneDrive - Medtronic PLC\Markdown\medias/image-20200526111048169.png)
 
 - PB has provided the details to Sebastian for trouble shooting. 
 - This cause multiple scrapping from the production line.
@@ -108,11 +108,11 @@ SCSUENG001-00132, station 4, status: 43(published but not transferred).
 
 - MCMAS send the local timestamp to PLC for synchronization.
 
-  ![image-20200526155048324](Medias\image-20200526155048324.png)
+  ![image-20200526155048324](medias/image-20200526155048324.png)
 
 - PLC is not reporting the data using the correct time zone.
 
-  ![image-20200526155217993](Medias\image-20200526155217993.png)
+  ![image-20200526155217993](medias/image-20200526155217993.png)
 
 #### Change verification logic to support the UDI solution.
 
